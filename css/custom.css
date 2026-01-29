@@ -1,0 +1,29 @@
+/* 让顶部 banner 图和全局背景图使用同一张图 */
+#page-header, body, #body-wrap {
+  background: url("/top_img/meng.jpg") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+/* 关键：让内容区域半透明，透出背景图 */
+.layout-wrap, .recent-post-item, .widget-wrap {
+  background: rgba(255, 255, 255, 0.8) !important; /* 半透明白色 */
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* 导航栏也可以加半透明效果 */
+#nav {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+/* 彻底移除顶部banner的黑色遮罩/渐变层 */
+#page-header::before {
+  background: transparent !important; /* 去掉黑色遮罩 */
+  opacity: 0 !important; /* 强制隐藏遮罩 */
+}
+/* 顺带去掉banner底部的阴影/分割线，衔接更干净 */
+#page-header {
+  box-shadow: none !important;
+}
